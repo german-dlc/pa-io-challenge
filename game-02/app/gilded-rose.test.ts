@@ -8,8 +8,8 @@ describe("GildedRose", () => {
         const gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
         
-        expect(items[0].sellIn).to.equal(9);
-        expect(items[0].quality).to.equal(19);
+        expect(gildedRose.items[0].sellIn).to.equal(9);
+        expect(gildedRose.items[0].quality).to.equal(19);
     });
 
     it("should increase quality for AGED_BRIE", () => {
@@ -17,7 +17,7 @@ describe("GildedRose", () => {
         const gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
         
-        expect(items[0].quality).to.equal(31);
+        expect(gildedRose.items[0].quality).to.equal(31);
     });
 
     it("should drop quality to 0 after the concert for CONCERT_PASS", () => {
@@ -25,7 +25,7 @@ describe("GildedRose", () => {
         const gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
         
-        expect(items[0].quality).to.equal(0);
+        expect(gildedRose.items[0].quality).to.equal(0);
     });
 
     it("should not change quality or sellIn for SULFURAS", () => {
@@ -33,8 +33,8 @@ describe("GildedRose", () => {
         const gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
         
-        expect(items[0].sellIn).to.equal(5);
-        expect(items[0].quality).to.equal(80);
+        expect(gildedRose.items[0].sellIn).to.equal(5);
+        expect(gildedRose.items[0].quality).to.equal(80);
     });
 
     it("should degrade quality twice as fast for CONJURED items", () => {
@@ -42,7 +42,7 @@ describe("GildedRose", () => {
         const gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
         
-        expect(items[0].quality).to.equal(8);
+        expect(gildedRose.items[0].quality).to.equal(8);
     });
 
     it("should not allow quality to drop below 0", () => {
@@ -50,7 +50,8 @@ describe("GildedRose", () => {
         const gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
         
-        expect(items[0].sellIn).to.equal(4);
-        expect(items[0].quality).to.equal(0);
+        expect(gildedRose.items[0].sellIn).to.equal(4);
+        expect(gildedRose.items[0].quality).to.equal(0);
     });
 });
+
